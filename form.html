@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus {
+            border-color: #fda085;
+            outline: none;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #fda085;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .form-group button:hover {
+            background: #f6d365;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Student Information</h2>
+        <form method ='POST'>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="standard">Standard:</label>
+                <input type="text" id="standard" name="std" required>
+            </div>
+            <div class="form-group">
+                <label for="division">Division:</label>
+                <input type="text" id="division" name="div" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" formaction="display">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
